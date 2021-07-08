@@ -1,3 +1,13 @@
-#!/bin/sh
+#! /bin/sh
 
-echo "PRE_PUSH from custom hooks path......"
+RED="\033[0;31m"
+RESET="\033[0m"
+
+echo "--- Running Build ---"
+gradle clean build
+if [ "$?" -ne 0 ]; then
+  echo "${RED} ***** BUILD FAILED ***** ${RESET}"
+  exit 1
+fi
+
+exit 0
