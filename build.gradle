@@ -12,6 +12,7 @@ apply from: rootProject.file('gradle/install-git-hooks.gradle')
 
 //tasks.getByPath(':app:preBuild').dependsOn installGitHooks
 
+
 repositories {
 	mavenCentral()
 }
