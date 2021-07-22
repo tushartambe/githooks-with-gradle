@@ -4,7 +4,15 @@ RED="\033[0;31m"
 RESET="\033[0m"
 
 echo "--- Running Build ---"
-gradle clean build
+
+if [ -x "$(command -v gradle)" ]; then
+  echo "Running : gradle clean build"
+  gradle clean build
+  else
+    echo "Running : ./gradlew clean build"
+    ./gradlew clean build
+fi
+
 if [ "$?" -ne 0 ]; then
   echo "${RED} ***** BUILD FAILED ***** ${RESET}"
   exit 1
